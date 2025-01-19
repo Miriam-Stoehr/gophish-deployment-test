@@ -10,6 +10,9 @@ WORKDIR /app
 # Copy all files from the local directory into the container
 COPY . .
 
+# Fetch dependencies
+RUN go mod tidy
+
 # Build the GoPhish application inside the container
 RUN go build -o gophish .
 
